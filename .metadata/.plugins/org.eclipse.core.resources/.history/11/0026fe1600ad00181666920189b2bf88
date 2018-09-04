@@ -1,0 +1,22 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class ChatRoom {
+	public static void main(String[] args) {
+		User user1 = new User(1,"John");
+		User user2 = new User(2,"Alice");
+		
+		List<Message> list = new ArrayList<>();
+		list.add(new Message(user1,"Hi"));
+		list.add(new Message(user2,"Hello"));
+		list.add(new Message(user1,"Whats up?"));
+		list.add(new Message(user2,"Nothing much"));
+		list.add(new Message(user1,"Lets meet"));
+		list.add(new Message(user1,"Okay!"));
+		
+		for(Message obj:list) {
+			System.out.println("User: " + obj.getName() + "\nMessage: " + obj.getMessage() + "\n--------------");
+			
+		}
+	}
+}

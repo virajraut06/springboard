@@ -1,0 +1,27 @@
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
+public class ReadWriteUser {
+	public static void main(String[] args) {
+		User user = new User("user1","password");
+		
+		ObjectOutputStream objectOutputStream = null;
+		try {
+			objectOutputStream = new ObjectOutputStream(new FileOutputStream("userObject"));
+			objectOutputStream.writeObject(user);
+			
+			System.out.println("User object written in file");
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if(objectOutputStream != null) {
+				try {
+					objectOutputStream.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,14 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class PersonDemo {
+	public static void main(String[] args) {
+		List<Person> persons = new ArrayList<>();
+		persons.add(new Person("Ram", 30));
+		persons.add(new Person("Lakshman", 28));
+		persons.add(new Person("Bharat", 26));
+		persons.add(new Person("Shyam", 22));
+		persons.add(new Person("Seeta", 29));
+		
+	}
+}

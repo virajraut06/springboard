@@ -1,0 +1,10 @@
+import java.util.Comparator;
+
+public class CustomerIdComparator implements Comparator<Customer> {
+
+	@Override
+	public int compare(Customer customer1, Customer customer2) {
+		Integer customer1 = customer1.getId();
+	}
+	
+}

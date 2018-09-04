@@ -1,0 +1,40 @@
+import static java.util.Comparator.comparing;
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.groupingBy;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class StreamBuilder {
+	public static void main(String[] args) {
+		List<Fruit> fruits = new ArrayList<>();
+		fruits.add(new Fruit("Apple", 90, 40, "Red"));
+		fruits.add(new Fruit("Orange", 80, 30, "Orange"));
+		fruits.add(new Fruit("Banana", 140, 20, "Yellow"));
+		fruits.add(new Fruit("Jackfruit", 100, 80, "Green"));
+		fruits.add(new Fruit("Pomegranate", 60, 50, "Red"));
+		fruits.add(new Fruit("Green Apple", 90, 45, "Green"));
+		
+		System.out.println("List of fruits with calories < 100:");
+		System.out.println(fruits.stream()
+				.filter(fruit -> fruit.getCalories() < 100)
+				.sorted(comparing(Fruit::getCalories).reversed())
+				.map(Fruit::getName)
+				.collect(toList()));
+
+		System.out.println("List of fruits, color wise:");
+		System.out.println(fruits.stream()
+				.collect(groupingBy(Fruit::getColor)));
+
+		System.out.println("List of red fruits as per price:");
+		System.out.println(fruits.stream()
+				.filter(fruit -> fruit.getColor().equals("Red"))
+				.sorted(comparing(Fruit::getPrice))
+				.map(Fruit::getName)
+				.collect(toList()));
+		
+		System.out.println("----------------------------------------------------------------");
+		
+	}
+}

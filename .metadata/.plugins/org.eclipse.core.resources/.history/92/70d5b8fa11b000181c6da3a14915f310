@@ -1,0 +1,58 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.sql.*;
+
+
+public class JdbcConnect {
+	public static void main(String[] args) throws IOException{
+		Connection connection = null;
+		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/testdb","root","root");
+			System.out.println("Connected");
+			
+			String sql = "insert into employeedetails values(?,?,?,?,?)";
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			
+			System.out.println("Enter employee details:");
+			System.out.println("Enter emp id");
+			preparedStatement.setInt(1, Integer.parseInt(bufferedReader.readLine()));
+			System.out.println("Enter emp name");
+			preparedStatement.setString(2, bufferedReader.readLine());
+			System.out.println("Enter emp designation");
+			preparedStatement.setString(3, bufferedReader.readLine());
+			System.out.println("Enter location");
+			preparedStatement.setString(4, bufferedReader.readLine());
+			System.out.println("Enter emp salary");
+			preparedStatement.setDouble(5, Double.parseDouble(bufferedReader.readLine()));
+			
+			int success = preparedStatement.executeUpdate();
+			if(success>0)
+				System.out.println(success+" row(s) inserted.");
+			else
+				System.out.println("Rows not inserted.");
+			
+			String query = "select * from employeedetails";
+			PreparedStatement preparedStatement2 = connection.prepareStatement(query);
+			
+			ResultSet resultSet = preparedStatement2.executeQuery();
+			System.out.println("ID |Name    |Designation   |Location       |Salary      ");
+			while(resultSet.next()) {
+				System.out.println(resultSet.getInt(1)+"|"+resultSet.getString(2)+"|"+resultSet.getString(3)+"|"+resultSet.getString(4)+"|"+resultSet.getDouble(5));
+			}
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if(connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+}

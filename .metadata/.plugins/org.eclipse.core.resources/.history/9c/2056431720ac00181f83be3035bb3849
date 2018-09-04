@@ -1,0 +1,15 @@
+
+public class RunnableThread implements Runnable {
+	public RunnableThread() {
+		
+	}
+	@Override
+	public void run() {
+		System.out.println("inside run");
+	}
+	public static void main(String[] args) {
+		RunnableThread runnableThread = new RunnableThread();
+		Thread thread =new Thread(runnableThread);
+		thread.start();
+	}
+}

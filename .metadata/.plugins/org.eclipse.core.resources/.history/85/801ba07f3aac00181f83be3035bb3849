@@ -1,0 +1,17 @@
+
+public class Test {
+	private int num;
+	private boolean flag = true;
+	public synchronized int getNum() {
+		System.out.println("GOT: "+num);
+		return num;
+	}
+
+	public synchronized void setNum(int num) {
+		if(!flag)
+		this.num = num;
+		System.out.println("PUT: "+num);
+	}
+	
+	
+}

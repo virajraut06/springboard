@@ -1,0 +1,16 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class StreamBuilder {
+	public static void main(String[] args) {
+		List<Fruit> fruits = new ArrayList<>();
+		fruits.add(new Fruit("Apple", 130, 40, "Red"));
+		fruits.add(new Fruit("Orange", 100, 30, "Orange"));
+		fruits.add(new Fruit("Banana", 160, 20, "Yellow"));
+		fruits.add(new Fruit("Jackfruit", 100, 80, "Green"));
+		fruits.add(new Fruit("Pomegranate", 80, 50, "Red"));
+		fruits.add(new Fruit("Green Apple", 130, 45, "Red"));
+		
+		
+	}
+}

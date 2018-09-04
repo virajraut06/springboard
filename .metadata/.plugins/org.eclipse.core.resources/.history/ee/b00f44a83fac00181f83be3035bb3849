@@ -1,0 +1,25 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class FileWriteThread extends Thread {
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	private FileOperations fileOperations;
+	public FileWriteThread(FileOperations fileOperations) {
+		this.fileOperations = fileOperations;
+		start();
+	}
+	
+	@Override
+	public void run() {
+		String str = "";
+		try {
+			str = br.readLine();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		while(true) {
+			fileOperations.setStr(str);
+		}
+	}
+}

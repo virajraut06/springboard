@@ -1,0 +1,31 @@
+
+public class GreetingsDemo {
+	public static void main(String[] args) {
+		Greetings greetings1 = () -> System.out.println("Good Morning");
+		Greetings greetings2 = () -> System.out.println("Good Afternoon");
+		Greetings greetings3 = () -> System.out.println("Good Evening");
+		
+		greetings1.greet();
+		greetings2.greet();
+		greetings3.greet();
+		
+		System.out.println("-----------------");
+		
+		int a = 2;
+		int b = 3;
+		Operations operations1 = (a,b) -> {
+			int c = a+b;
+			System.out.println("Addition: "+c);
+		};
+		
+		Operations operations2 = (a,b) -> {
+			int c = b-a;
+			System.out.println("Subtraction: "+c);
+		};
+		
+		Operations operations3 = (a,b) -> {
+			int c = a*b;
+			System.out.println("Multiplication: "+c);
+		};
+	}
+}

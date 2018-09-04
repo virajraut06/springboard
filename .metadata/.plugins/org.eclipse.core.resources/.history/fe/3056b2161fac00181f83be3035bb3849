@@ -1,0 +1,11 @@
+
+public class RunnableThread implements Runnable {
+
+	@Override
+	public void run() {
+		System.out.println("inside run");
+	}
+	public static void main(String[] args) {
+		
+	}
+}

@@ -1,0 +1,28 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.TreeSet;
+
+public class Six {
+	public static void main(String[] args) throws IOException {
+		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+		TreeSet<Integer> treeSet = new TreeSet<>();
+		treeSet.add(3);
+		treeSet.add(10);
+		treeSet.add(15);
+		treeSet.add(13);
+		treeSet.add(2);
+		treeSet.add(5);
+		treeSet.add(6);
+		treeSet.add(20);
+		System.out.println("TreeSet before removing first element");
+		for(Integer obj:treeSet) {
+			System.out.println(obj);
+		}
+		treeSet.remove(treeSet.first());
+		System.out.println("TreeSet after removing first element");
+		for(Integer obj:treeSet) {
+			System.out.println(obj);
+		}
+	}
+}

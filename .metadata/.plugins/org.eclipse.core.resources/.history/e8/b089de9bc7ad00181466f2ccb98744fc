@@ -1,0 +1,16 @@
+
+public class Bike implements Vehicle {
+
+	@Override
+	public void drive() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void displayInfo() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

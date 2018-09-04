@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
+
+import static java.util.Comparator.comparing;
+import static java.util.stream.Collectors.toList;
+
+public class StreamBasic {
+	
+	public List<Dish> getLowCalorieDish(List<Dish> dishes){
+		List<Dish> dish = dishes; 
+		List<Dish> lowCalDishes = new ArrayList<>();
+		for(Dish newDish: dish) {
+			if(newDish.getCalories()<400) {
+				lowCalDishes.add(newDish);
+			}
+		}
+		
+		return lowCalDishes;
+	}
+	
+	public static List<String> getLowCalorieDishesNames(List<Dish> dishes){
+		return dishes.stream()
+				.filter(d -> d.getCalories() <400)
+				.sorted(comparing(Dish::getCalories))
+				.map(Dish::getName)
+				.collect(toList());
+	}
+	
+	public static void main(String[] args) {
+		StreamBasic streamBasic = new StreamBasic();
+		System.out.println("Using java 7");
+		System.out.println(streamBasic.getLowCalorieDish(Dish.menu));
+		System.out.println("Using java 8");
+		System.out.println(getLowCalorieDishesNames(Dish.menu));
+		
+		Stream<Integer> stream = Stream.of(1,2,3,4,5,6,7,8,9);
+		stream.forEach(p -> System.out.print(p));
+	}
+	
+	
+}

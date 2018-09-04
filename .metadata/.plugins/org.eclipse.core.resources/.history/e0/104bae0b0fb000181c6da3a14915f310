@@ -1,0 +1,38 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.sql.*;
+
+public class JdbcConnect {
+	public static void main(String[] args) throws IOException{
+		Connection connection;
+		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/testdb","root","root");
+			System.out.println("Connected");
+			
+			System.out.println("Enter employee details:");
+			System.out.println("Enter emp id");
+			int empid = Integer.parseInt(bufferedReader.readLine());
+			System.out.println("Enter emp name");
+			String empname = bufferedReader.readLine();
+			System.out.println("Enter emp designation");
+			String empdesg = bufferedReader.readLine();
+			System.out.println("Enter location");
+			String location = bufferedReader.readLine();
+			System.out.println("Enter emp salary");
+			double salary = Double.parseDouble(bufferedReader.readLine());
+			
+			String query = "insert into employeedetails values("+empid+",'"+empname+"','"+empdesg+"','"+location+"',"+salary+")";
+			
+			PreparedStatement preparedStatement = connection.prepareStatement(query);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				System.out.println(resultSet.getString(1));
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}

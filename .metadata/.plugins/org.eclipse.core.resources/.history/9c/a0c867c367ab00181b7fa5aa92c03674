@@ -1,0 +1,37 @@
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class PrimitiveReadWrite {
+	public static void main(String[] args) {
+		FileOutputStream fileOutputStream = null;
+		DataOutputStream dataOutputStream = null;
+		DataInputStream dataInputStream;
+		FileInputStream fileInputStream;
+		try {
+			fileOutputStream = new FileOutputStream("primitivedata");
+			dataOutputStream = new DataOutputStream(fileOutputStream);
+			dataOutputStream.writeInt(20);
+			dataOutputStream.writeFloat(12.34f);
+			dataOutputStream.writeLong(10L);
+			dataOutputStream.writeDouble(23.49);
+			dataOutputStream.writeBoolean(true);
+			dataOutputStream.writeChar('A');
+			System.out.println("Data written in file.");
+			
+			fileInputStream = new FileInputStream("primitivedata");
+			dataInputStream = new DataInputStream(fileInputStream);
+			
+			System.out.println((String)dataInputStream.readInt());
+			System.out.println(dataInputStream.readLong());
+			System.out.println(dataInputStream.readDouble());
+			System.out.println(dataInputStream.readFloat());
+			System.out.println(dataInputStream.readBoolean());
+			System.out.println(dataInputStream.readChar());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}

@@ -1,0 +1,18 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class BankAccountList {
+	public static void main(String[] args) {
+		List<BankAccount> bankAccounts = new ArrayList<>();
+		bankAccounts.add(new BankAccount(1001, "Vishal", 50000));
+		bankAccounts.add(new BankAccount(1002, "Vishal", 75000));
+		bankAccounts.add(new BankAccount(1003, "Vishal", 150000));
+		bankAccounts.add(new BankAccount(1004, "Vishal", 58000));
+		bankAccounts.add(new BankAccount(1005, "Vishal", 52600));
+		bankAccounts.add(new BankAccount(1006, "Vishal", 72000));
+		bankAccounts.add(new BankAccount(1007, "Vishal", 26000));
+		bankAccounts.add(new BankAccount(1008, "Vishal", 81000));
+		bankAccounts.add(new BankAccount(1009, "Vishal", 200000));
+		bankAccounts.add(new BankAccount(1010, "Vishal", 45200));
+	}
+}

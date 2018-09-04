@@ -1,0 +1,36 @@
+
+public class News {
+	private int newsId;
+	private String postedByUSer, commentByUser, comment;
+	
+	public News (int newsId, String postedByUser, String commentByUser, String comment) {
+		this.newsId = newsId;
+		this.postedByUSer = postedByUser;
+		this.commentByUser = commentByUser;
+		this.comment = comment;
+	}
+
+	public int getNewsId() {
+		return newsId;
+	}
+
+	public String getPostedByUSer() {
+		return postedByUSer;
+	}
+
+	public String getCommentByUser() {
+		return commentByUser;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	@Override
+	public String toString() {
+		return "News [newsId=" + newsId + ", postedByUSer=" + postedByUSer + ", commentByUser=" + commentByUser
+				+ ", comment=" + comment + "]";
+	}
+	
+	
+}

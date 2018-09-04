@@ -1,0 +1,23 @@
+
+public class Message extends User {
+	private String message;
+	public Message(User user, String message) {
+		super(user.getId(), user.getName());
+		this.message = message;
+	}
+	
+	@Override
+	public int getId() {
+		return super.getId();
+	}
+	
+	@Override
+	public String getName() {
+		return super.getName();
+	}
+
+	public String getMessage() {
+		return message;
+	}
+	
+}

@@ -1,0 +1,8 @@
+
+public class GreetingsDemo {
+	public static void main(String[] args) {
+		Greetings greetings1 = () -> System.out.println("Good Morning");
+		Greetings greetings2 = () -> System.out.println("Good Afternoon");
+		Greetings greetings3 = () -> System.out.println("Good Evening");
+	}
+}

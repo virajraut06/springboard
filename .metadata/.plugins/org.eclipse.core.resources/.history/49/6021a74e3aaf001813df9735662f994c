@@ -1,0 +1,14 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class ForEachDemo {
+	public static void main(String[] args) {
+		List<Integer> list = new ArrayList<>();
+		list.add(10);
+		list.add(42);
+		list.add(15);
+		list.add(25);
+		list.add(86);
+		list.add(56);
+	}
+}

@@ -1,0 +1,15 @@
+
+public class Bike implements Vehicle {
+
+	@Override
+	public void drive() {
+		blowHorn();
+		System.out.println("Riding bike!");
+	}
+
+	@Override
+	public void displayInfo() {
+		System.out.println("This is bike!");
+	}
+	
+}
